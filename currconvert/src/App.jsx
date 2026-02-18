@@ -8,7 +8,8 @@ function App() {
 
   return (
     <>
-      <h1>Currency Converter</h1>
+      <h1>Convert 1 GBP to EUR - Convert Pounds to Euros</h1>
+      <h2>Currency Converter</h2>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
