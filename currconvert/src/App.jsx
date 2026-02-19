@@ -6,7 +6,7 @@ import CurrencyPanel from './components/ui/CurrencyPanel'
 
 
 function App() {
-  const { currencies, converting, error, getExchangeRate } = useCurrencies()
+  const { currencies, converting, error, getExchangeRate, loading } = useCurrencies()
   const { fromCurrency, toCurrency, toAmount, fromAmount, handleAmountChange, handleSelectChange, handleSwap } = useConverter(getExchangeRate)
   const [rate, setRate] = useState(null)
 
@@ -51,7 +51,7 @@ function App() {
               placeholder="1"
              />
 
-            <SwapButton onClick={handleSwap} converting={converting} />     
+            <SwapButton onClick={handleSwap} converting={converting} loading={loading} />     
 
             <CurrencyPanel
               title="To"
