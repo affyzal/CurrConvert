@@ -18,7 +18,7 @@ A currency conversion tool built with React and Vite, powered by the CurrencyBea
 npm install
 ```
 
-3. Create a `.env` file in the root of the project:
+3. Create a `.env` file in the root of the project with CurrencyBeacon API Key:
 
 ```
 VITE_API_KEY=API_KEY_HERE
