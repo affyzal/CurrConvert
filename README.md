@@ -1,8 +1,9 @@
-
 # Currency Converter
 
 A real-time currency conversion tool built with React and Vite.
 Supports bidirectional conversion, debounced API calls, and input validation.
+
+🔗 [fx.afzalmiah.dev](https://fx.afzalmiah.dev)
 
 ## Tech Stack
 
