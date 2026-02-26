@@ -29,7 +29,6 @@ const useCurrencies = () => {
     try {
       setError(null)
       setConverting(true)
-      // await new Promise(resolve => setTimeout(resolve, 500))
       const response = await axios.get('https://api.currencybeacon.com/v1/convert', {
         params: {
           api_key: API_KEY,
