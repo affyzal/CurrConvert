@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import useCurrencies from './hooks/useCurrency'
 import useConverter from './hooks/useConverter'
 import SwapButton from './components/ui/SwapButton'
@@ -7,16 +7,7 @@ import CurrencyPanel from './components/ui/CurrencyPanel'
 
 function App() {
   const { currencies, converting, error, getExchangeRate, loading } = useCurrencies()
-  const { fromCurrency, toCurrency, toAmount, fromAmount, handleAmountChange, handleSelectChange, handleSwap } = useConverter(getExchangeRate)
-  const [rate, setRate] = useState(null)
-
-  useEffect(() => {
-    const fetchRate = async () => {
-      const result = await getExchangeRate(fromCurrency, toCurrency, 1)
-      setRate(result)
-    }
-    fetchRate()
-  }, [fromCurrency, toCurrency, getExchangeRate])
+  const { fromCurrency, toCurrency, toAmount, fromAmount, handleAmountChange, handleSelectChange, handleSwap, rate } = useConverter(getExchangeRate)
 
   return (
     <main className="min-h-screen bg-slate-950 text-white flex flex-col items-center justify-center p-4">
@@ -61,7 +52,7 @@ function App() {
               onCurrencyChange={handleSelectChange}
               currencies={currencies}
               direction="to"
-              placeholder={rate}
+              placeholder={rate ? rate.toFixed(2) : ''}
              />
             
 

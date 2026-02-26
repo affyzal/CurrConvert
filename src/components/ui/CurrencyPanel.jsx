@@ -5,7 +5,17 @@ const CurrencyPanel = ({ title, amount, currency, onAmountChange, onCurrencyChan
       <div className="flex items-center gap-3">
         <input
           value={amount}
-          onChange={(e) => onAmountChange(e.target.value, direction)}
+          onKeyDown={(e) => {
+            if (e.key === 'e' || e.key === '-' || e.key === '+') {
+              e.preventDefault()
+            }
+          }}
+          onChange={(e) => {
+            const value = e.target.value
+            if (value === '' || parseFloat(value) >= 0) {
+              onAmountChange(value, direction)
+            }
+          }}
           type="number"
           placeholder={placeholder}
           min={0}
